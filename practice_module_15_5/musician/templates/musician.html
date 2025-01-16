@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+<h1>Home Page</h1>
+
+<div style="width: 80%;margin: auto;">
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Musician Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Instrument</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for st in musician_form %}
+            <tr>
+
+                <td>{{st.first_name}}  {{st.last_name}}</td>
+                <td>{{st.email}}</td>
+                <td>{{st.phone}}</td>
+                <td>{{st.instrument}}</td>
+                
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
