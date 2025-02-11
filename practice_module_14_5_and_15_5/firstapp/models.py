@@ -3,7 +3,7 @@ from django.db import models
 class MyModel(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True, default='2025-01-01T00:00:00')
+    created_at = models.DateTimeField(auto_now_add=True) 
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
     email = models.EmailField()
