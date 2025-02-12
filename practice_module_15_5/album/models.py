@@ -1,24 +1,14 @@
+   
 from django.db import models
 from musician.models import Musician
 
-# Create your models here.
-RATING_CHOICES = [
-    (1,'1'),
-    (2,'2'),
-    (3,'3'),
-    (4,'4'),
-    (5,'5'),
-]
-   
+RATING_CHOICES = [(i, str(i)) for i in range(1, 6)]
+
 class Album(models.Model):
-    album_name = models.CharField( max_length=50)
-    release_date = models.DateField( auto_now=False, auto_now_add=False)
-    rating = models.IntegerField(
-        choices=RATING_CHOICES,
-        default=5,
-        help_text="Select a rating between 1 and 5"
-    )
-    album_number = models.ForeignKey(Musician, on_delete=models.CASCADE)
-    
-    
-    
+    album_name = models.CharField(max_length=50)
+    musician = models.ForeignKey(Musician, on_delete=models.CASCADE)
+    release_date = models.DateField()
+    rating = models.IntegerField(choices=RATING_CHOICES, default=5)
+
+    def __str__(self):
+        return self.album_name
