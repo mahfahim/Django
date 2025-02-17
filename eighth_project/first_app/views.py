@@ -45,7 +45,7 @@ def user_login(request):
 def profile(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            form = ChangeUserData(request.POST, instance=request.user)
+            form = ChangeUserData(request.POST, instance=request.user) 
             if form.is_valid():
                 messages.success(request, 'Account updated successfully')
                 form.save()
